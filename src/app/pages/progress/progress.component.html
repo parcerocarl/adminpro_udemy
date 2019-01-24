@@ -4,7 +4,11 @@
             <div class="card-body">
                 <h3 class="card-title">Barra de Progreso</h3>
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.ariaValueNow]="progreso" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso+'%'"></div>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.ariaValueNow]="progreso1" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso1+'%'"></div>
+                </div>
+                <br>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" [attr.ariaValueNow]="progreso2" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso2+'%'"></div>
                 </div>
             </div>
         </div>
@@ -15,24 +19,22 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <div class="input-group">
-                    <input type="number" name="progreso" [(ngModel)]="progreso" class="form-control" aria-label="Recipient's username with two button addons" aria-describedby="button-addon4">
-                    <div class="input-group-append" id="button-addon4">
-                        <button class="btn btn-outline-primary" type="button" (click)="cambiarValor(+5)">
-                          <i class="mdi mdi-plus"></i>
-                        </button>
-                        <button class="btn btn-outline-primary" type="button" (click)="cambiarValor(-5)">
-                            <i class="mdi mdi-minus"></i>
-                        </button>
-                    </div>
-                </div>
+                <!--Si encerraramos leyenda en [] estariamos llamando la variable 
+                leyenda que esta creada en incrementador mas no en progress, por lo cual
+            se envia de esta forma y asi llamamos al leyenda de incrementador en progreso
+        lo enviamos ais porque no es un string es un numero si dentro de incrementador
+    en el input para leyenda le hubieramos puesto @Input('perro') en vez de leyenda aqui colocariamos perro
+
+Para el emiter en vez de un (click) usamos el (nombreEvento) en este caso (cambioValor)="nombreFuncion(), siempre al
+emitir es necesario el $event"-->
+                <app-incrementador leyenda="Progress Azul" (cambioValor)=" progreso1 = $event" [progreso]="progreso1"></app-incrementador>
             </div>
         </div>
     </div>
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                Texto 2
+                <app-incrementador leyenda="Progress Verde" (cambioValor)=" progreso2 = $event" [progreso]="progreso2"></app-incrementador>
             </div>
         </div>
     </div>
