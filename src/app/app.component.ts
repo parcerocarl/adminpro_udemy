@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SettingsService } from './services/service.index';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'adminpro';
+  // Solo con inyectar el servicio, se llama al constructor de este y se ejecuta la carga de ajustes
+  constructor(_ajustes: SettingsService){
+  }
 }

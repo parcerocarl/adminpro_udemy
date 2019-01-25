@@ -12,6 +12,7 @@ import { APP_ROUTES } from './app.routes';
 // Modulos
 import { PagesModule } from './pages/pages.module';
 import { FormsModule } from '@angular/forms';
+import { ServiceModule } from './services/service.module';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     PagesModule,
     FormsModule,
+    ServiceModule,
     APP_ROUTES
   ],
   providers: [],
